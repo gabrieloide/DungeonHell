@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static PlayerLife instance;
+    private void Awake()
     {
-        
+        if (!instance)
+        {
+            instance = this;
+        } 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int HealthPoints = 5;
 }
