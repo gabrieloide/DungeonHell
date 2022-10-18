@@ -50,22 +50,15 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Movement of Player
-        if (Mathf.Abs(Input.GetAxisRaw(horizontal)) > 0.5f)
+        if (Mathf.Abs(Input.GetAxisRaw(horizontal)) > 0.5f || Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
         {
-            rigidBody2D.velocity = new Vector2(speed * Input.GetAxisRaw(horizontal), rigidBody2D.velocity.y);
+            rigidBody2D.velocity = new Vector2(Input.GetAxisRaw(horizontal), Input.GetAxisRaw(vertical)).normalized * speed;
         }
         else
         {
-            rigidBody2D.velocity = new Vector2(0, rigidBody2D.velocity.y);
+            rigidBody2D.velocity = Vector2.zero;
         }
-        if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
-        {
-            rigidBody2D.velocity = new Vector2( rigidBody2D.velocity.x,speed * Input.GetAxisRaw(vertical));
-        }
-        else
-        {
-            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, 0);
-        }
+        Vector3.Normalize(transform.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
