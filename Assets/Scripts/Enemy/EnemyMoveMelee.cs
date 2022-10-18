@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Behavior : MonoBehaviour
+public class EnemyMoveMelee : MonoBehaviour
 {
     private Transform target;
 

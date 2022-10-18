@@ -6,6 +6,11 @@ TagManager:
   tags:
   - EnemyRed
   - EnemyBlue
+  - PayerRed
+  - PlayerBlue
+  - BuffAtackSpeed
+  - BuffHealth
+  - BuffSpeed
   layers:
   - Default
   - TransparentFX
