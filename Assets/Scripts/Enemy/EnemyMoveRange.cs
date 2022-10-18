@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2Behavior : MonoBehaviour
+public class EnemyMoveRange : MonoBehaviour
 {
     private Transform target;
 
@@ -20,7 +20,9 @@ public class Enemy2Behavior : MonoBehaviour
         //movement
         if (Vector2.Distance(transform.position, target.position) > maxDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            Vector2 direction = target.position - transform.position;
+            transform.Translate(direction.normalized * speed * Time.deltaTime);
         }
         if (Vector2.Distance(transform.position, target.position) < minDistance)
         {

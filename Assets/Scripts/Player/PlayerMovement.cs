@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rigidBody2D;
     public float speed;
+    public float speedSlowOnClick;
+    public GameObject Weapon;
 
     string horizontal = "Horizontal";
     string vertical = "Vertical";
@@ -46,6 +48,16 @@ public class PlayerMovement : MonoBehaviour
             ChangeColor = false;
             PlayerCurrentColor = PlayerColorState.PlayerBlue;
         }
+
+        //Slow speed shooting
+        if (Input.GetMouseButtonDown(0))
+        {
+            speed -= speedSlowOnClick;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            speed += speedSlowOnClick;
+        }
     }
     void FixedUpdate()
     {
@@ -66,12 +78,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, 0);
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("EnemyRed"))
-        {
-            Death();
-        }
+
     }
 }
