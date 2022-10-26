@@ -4,12 +4,35 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject target;
-    public float CameraSpeed;
+    [SerializeField]
+    public float followSpeed;
+    public Transform trackingTarget;
 
-    private void LateUpdate()
+    [SerializeField]
+    float xOffset;
+
+    [SerializeField]
+    float yOffset;
+
+    public bool isXLocked, isYLocked;
+
+    private void FixedUpdate()
     {
-        Vector3 PlayerTarget = new Vector3(target.transform.position.x, target.transform.position.y, this.transform.position.z);
-        this.transform.position = Vector3.MoveTowards(this.transform.position, PlayerTarget, CameraSpeed * Time.deltaTime);
+        float xTarget = trackingTarget.position.x + xOffset;
+        float yTarget = trackingTarget.position.y + yOffset;
+        float xNew = transform.position.x;
+        if (!isXLocked)
+        {
+            xNew = Mathf.Lerp(transform.position.x, xTarget, Time.deltaTime * followSpeed);
+        }
+
+        float yNew = transform.position.y;
+        if (!isYLocked)
+        {
+            yNew = Mathf.Lerp(transform.position.y, yTarget, Time.deltaTime * followSpeed);
+        }
+
+        transform.position = new Vector3(xNew, yNew, transform.position.z);
+
     }
 }

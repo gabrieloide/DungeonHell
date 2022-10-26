@@ -30,13 +30,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        switch (PlayerCurrentColor)
-        {
-            case PlayerColorState.PlayerBlue:
-
-                break;
-        }
-
         //Change the type of the projectile that you can fire
         if (Input.GetMouseButtonDown(1) && ChangeColor == false)
         {
@@ -70,15 +63,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidBody2D.velocity = Vector2.zero;
         }
-        if (Mathf.Abs(Input.GetAxisRaw(vertical)) > 0.5f)
-        {
-            rigidBody2D.velocity = new Vector2( rigidBody2D.velocity.x,speed * Input.GetAxisRaw(vertical));
-        }
-        else
-        {
-            rigidBody2D.velocity = new Vector2(rigidBody2D.velocity.x, 0);
-        }
-
         Vector3.Normalize(transform.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)

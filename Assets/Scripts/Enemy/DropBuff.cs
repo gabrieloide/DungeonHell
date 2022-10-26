@@ -10,7 +10,6 @@ public class DropBuff : MonoBehaviour
 
     void Update()
     {
-        vector2 = transform.position;
         if (gameObject.GetComponent<EnemyHealth>().healtAmount <= 0)
         {
             enemyDie();
@@ -22,7 +21,7 @@ public class DropBuff : MonoBehaviour
         probability = Random.Range(0, 100);
         if(probability >= 0 && probability < 10)
         {
-            Instantiate(buffs[0], vector2, Quaternion.identity);
+            Instantiate(buffs[0], transform.position, Quaternion.identity);
         }
         else if(probability >= 10 && probability < 20)
         {
@@ -33,7 +32,6 @@ public class DropBuff : MonoBehaviour
         {
             Instantiate(buffs[2], vector2, Quaternion.identity);
         }
-
         Destroy(gameObject);
     }
 }

@@ -5,25 +5,24 @@ using UnityEngine;
 
 public class SceneManagerLoad : MonoBehaviour
 {
+    public static SceneManagerLoad instance;
+    Animator animator;
+
+    string TransitionString = "Transition";
     public float transitionTime;
 
-    public float transitionSpeed;
-    public int scene;
-
-    public GameObject Transition;
-
-    // Update is called once per frame
-    private void Update()
+    private void Awake()
     {
-        if (GameManager.instance.playerAlive == false)
+        if (!instance)
         {
+            instance = this;
         }
+        animator = GetComponentInChildren<Animator>();
     }
 
     public IEnumerator LoadScene(int scene)
     {
-        Vector2 MaxPanel = new Vector2(1, 1);
-        Transition.transform.localScale = Vector2.MoveTowards(Transition.transform.localScale, MaxPanel, transitionSpeed * Time.deltaTime);
+        animator.SetTrigger(TransitionString);
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }

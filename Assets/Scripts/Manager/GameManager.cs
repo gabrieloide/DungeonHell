@@ -6,8 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public bool playerAlive;
-    [SerializeField] PlayerMovement player;
-    public int enemyRemaining;
+    [SerializeField] PlayerMovement player; 
+
+    [Header("LevelStats")]
+    public int enemyAmount;
+    public GameObject ChangeScene;
+
     private void Awake()
     {
         if (!instance)
@@ -27,6 +31,11 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(ShowGameOverScreen());   
         }
+        if (enemyAmount == 0)
+        {
+            ChangeScene.SetActive(true);
+        }
+        
     }
     public void PlayerHurt()
     {

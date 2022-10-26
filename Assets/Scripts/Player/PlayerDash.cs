@@ -21,6 +21,7 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKey(KeyCode.W) && !Dash)
         {
             direction.y = 1;
@@ -52,12 +53,6 @@ public class PlayerDash : MonoBehaviour
             transform.Translate(direction.normalized * speed * Time.deltaTime);
         }
     }
-
-    private void FixedUpdate()
-    {
-        
-    }
-
     IEnumerator DashTime()
     {
         canDash = false;
