@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -9,15 +10,18 @@ public class PlayerLife : MonoBehaviour
     public float lastHealtAmount;
     public int HealthPoints;
     public bool canTakeDamage;
+
     public GameObject[] hearts;
+    public Sprite[] heathSprites;
 
     public Color colorAlpha;
 
     void Start()
     {
         canTakeDamage = true;
-        lastHealtAmount = healthAmount;
         colorAlpha = gameObject.GetComponent<SpriteRenderer>().color;
+        lastHealtAmount = healthAmount;
+        hearthControlerSprite();
     }
     private void Awake()
     {
@@ -32,59 +36,33 @@ public class PlayerLife : MonoBehaviour
 
         if(lastHealtAmount != healthAmount)
         {
+            if(lastHealtAmount > healthAmount)
+                StartCoroutine(takeDamage());
+
             lastHealtAmount = healthAmount;
-            StartCoroutine(takeDamage());
+
+            hearthControlerSprite();
+            
         }
 
         if (healthAmount <= 0)
         {
             Debug.Log("You die");
         }
+    }
 
-        //Heart controler
-        if(healthAmount < 5)
+    public void hearthControlerSprite()
+    {
+        for (int i = 2; i <= 11; i++)
         {
-            hearts[4].SetActive(false);
-        }
-        else
-        {
-            hearts[4].SetActive(true);
-        }
+            if (healthAmount < i - 2)
+                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[0];
 
-        if(healthAmount < 4)
-        {
-            hearts[3].SetActive(false);
-        }
-        else
-        {
-            hearts[3].SetActive(true);
-        }
+            else if (healthAmount == i - 2)
+                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[1];
 
-        if(healthAmount < 3)
-        {
-            hearts[2].SetActive(false);
-        }
-        else
-        {
-            hearts[2].SetActive(true);
-        }
-
-        if(healthAmount < 2)
-        {
-            hearts[1].SetActive(false);
-        }
-        else
-        {
-            hearts[1].SetActive(true);
-        }
-
-        if(healthAmount < 1)
-        {
-            hearts[0].SetActive(false);
-        }
-        else
-        {
-            hearts[0].SetActive(true);
+            else if (healthAmount > i - 2)
+                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[2];
         }
     }
 
@@ -92,7 +70,7 @@ public class PlayerLife : MonoBehaviour
     {
         canTakeDamage = false;
         colorAlpha.a = 0.4f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         colorAlpha.a = 1f;
         canTakeDamage = true;
     }

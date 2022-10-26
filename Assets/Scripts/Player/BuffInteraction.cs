@@ -8,7 +8,9 @@ public class BuffInteraction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BuffHealth"))
         {
-            gameObject.GetComponent<PlayerLife>().healthAmount += 1;
+            if (gameObject.GetComponent<PlayerLife>().healthAmount < 10)
+                gameObject.GetComponent<PlayerLife>().healthAmount += 1;
+
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("BuffAtackSpeed"))

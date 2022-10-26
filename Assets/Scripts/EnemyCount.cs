@@ -10,7 +10,6 @@ public class EnemyCount : MonoBehaviour
 
     void Start()
     {
-        enemyAmounttext = gameObject.GetComponent<Text>();
     }
 
     void Update()
