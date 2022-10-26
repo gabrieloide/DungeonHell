@@ -44,7 +44,10 @@ public class BulletEnemy : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player") && collision.gameObject.GetComponent<PlayerMovement>().PlayerCurrentColor == PlayerColorState.PlayerBlue)
             {
-                collision.GetComponent<PlayerLife>().healthAmount -= 1;
+                if (collision.GetComponent<PlayerLife>().canTakeDamage)
+                {
+                    collision.GetComponent<PlayerLife>().healthAmount -= 1;
+                }
                 Destroy(gameObject);
             }
         }
