@@ -21,26 +21,30 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.W) && !Dash)
+        //Dash direction
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             direction.y = 1;
-            direction.x = 0;
         }
-        if (Input.GetKey(KeyCode.A) && !Dash)
-        {
-            direction.x = - 1;
-            direction.y = 0;
-        }
-        if (Input.GetKey(KeyCode.S) && !Dash)
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             direction.y = -1;
-            direction.x = 0;
         }
-        if (Input.GetKey(KeyCode.D) && !Dash)
+        else
+        {
+            direction.y = 0;
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            direction.x = - 1;
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             direction.x = 1;
-            direction.y = 0;
+        }
+        else
+        {
+            direction.x = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
