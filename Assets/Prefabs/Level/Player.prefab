@@ -214,6 +214,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  heathSprites:
+  - {fileID: 4001774194934266863, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
+  - {fileID: 6063720302124274223, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
+  - {fileID: -6418410427455501101, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
   colorAlpha: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5679036025147366581
 MonoBehaviour:
