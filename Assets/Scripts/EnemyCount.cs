@@ -9,8 +9,8 @@ public class EnemyCount : MonoBehaviour
 
     void Start()
     {
+    //zzzzzzzzzzzzzzzzzzzzzzzzz
     }
-
     void Update()
     {
         enemyAmounttext.text = "Enemies = " + GameManager.instance.enemyAmount;

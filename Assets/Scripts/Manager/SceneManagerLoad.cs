@@ -17,12 +17,11 @@ public class SceneManagerLoad : MonoBehaviour
         {
             instance = this;
         }
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
-
     public IEnumerator LoadScene(int scene)
     {
-        animator.SetTrigger(TransitionString);
+        animator.SetBool(TransitionString, true);
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }

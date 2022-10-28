@@ -15,6 +15,7 @@ public class PlayerShooting : MonoBehaviour
 
     public float fireRate;
     bool canShoot = true;
+    public float damage;
 
     void Start()
     {

@@ -14,17 +14,21 @@ public class PlayerLife : MonoBehaviour
     public GameObject[] hearts;
     public Sprite[] heathSprites;
 
+    public float invulnerabilityTime;
+
+    Animator animator;
+
     public Color colorAlpha;
 
     void Start()
     {
         canTakeDamage = true;
-        colorAlpha = gameObject.GetComponent<SpriteRenderer>().color;
         lastHealtAmount = healthAmount;
         hearthControlerSprite();
     }
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         if (!instance)
         {
             instance = this;
@@ -32,22 +36,21 @@ public class PlayerLife : MonoBehaviour
     }
     void Update()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = colorAlpha;
-
         if(lastHealtAmount != healthAmount)
         {
             if(lastHealtAmount > healthAmount)
+            {
                 StartCoroutine(takeDamage());
+            }
 
             lastHealtAmount = healthAmount;
 
-            hearthControlerSprite();
-            
+            hearthControlerSprite();   
         }
 
         if (healthAmount <= 0)
         {
-            Debug.Log("You die");
+
         }
     }
 
@@ -69,9 +72,8 @@ public class PlayerLife : MonoBehaviour
     IEnumerator takeDamage()
     {
         canTakeDamage = false;
-        colorAlpha.a = 0.4f;
-        yield return new WaitForSeconds(1.5f);
-        colorAlpha.a = 1f;
+        animator.SetTrigger("Hit");
+        yield return new WaitForSeconds(invulnerabilityTime);
         canTakeDamage = true;
     }
 }

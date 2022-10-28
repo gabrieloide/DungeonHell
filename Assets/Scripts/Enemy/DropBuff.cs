@@ -6,7 +6,6 @@ public class DropBuff : MonoBehaviour
 {
     public GameObject[] buffs;
     private int probability;
-    Vector2 vector2;
 
     void Update()
     {
@@ -21,16 +20,16 @@ public class DropBuff : MonoBehaviour
         probability = Random.Range(0, 100);
         if(probability >= 0 && probability < 10)
         {
-            Instantiate(buffs[0], transform.position, Quaternion.identity);
+            Instantiate(buffs[0], this.transform.position, Quaternion.identity);
         }
         else if(probability >= 10 && probability < 20)
         {
-            Instantiate(buffs[1], vector2, Quaternion.identity);
+            Instantiate(buffs[1], this.transform.position, Quaternion.identity);
 
         }
         else if(probability >= 20 && probability < 30)
         {
-            Instantiate(buffs[2], vector2, Quaternion.identity);
+            Instantiate(buffs[2], this.transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
     }

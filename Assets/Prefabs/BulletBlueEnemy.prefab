@@ -144,8 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c2a28548995834daf414948cc8fb15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 14
   color: 0
-  asd: 0
-  playerRed: {fileID: 0}
-  playerBlue: {fileID: 0}

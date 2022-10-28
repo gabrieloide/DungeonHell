@@ -11,5 +11,4 @@ public class ChangeScene : MonoBehaviour
             StartCoroutine(SceneManagerLoad.instance.LoadScene(nextScene));
         }
     }
-
 }

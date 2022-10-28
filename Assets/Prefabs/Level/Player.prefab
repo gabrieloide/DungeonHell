@@ -100,7 +100,8 @@ MonoBehaviour:
   projectilePrefabRed: {fileID: 2541424236216109393, guid: 0407b35f2cd8f9e47846c9ef9583fe6e, type: 3}
   projectilePrefrabBlue: {fileID: 2541424236216109393, guid: a2a1842f91b2e244997798f4dde7b00d, type: 3}
   rotationSpeed: 15.5
-  fireRate: 5
+  fireRate: 2
+  damage: 3
 --- !u!1 &5679036025147366728
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +215,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  heathSprites: []
+  invulnerabilityTime: 0
   colorAlpha: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5679036025147366581
 MonoBehaviour:

@@ -5,82 +5,48 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float healtAmount;
+    public float lasthealtAmount;
     public bool canTakeDamage;
-    public Color colorAlpha;
-    public GameObject healtBar;
-    private Vector2 scaleChange, positionChange;
-    public bool color; //true= Red & False= Blue
-    public bool kamikaze; //Only kakikaze =true
-    public bool tower; //Only tower =true
+    public static EnemyHealth instance;
 
+    Animator animator;
+    public float invulnerabilityTime;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {
-        scaleChange.x = 1.5f;
-        scaleChange.y = 0.2f;
-        positionChange.y = 1f;
-
         canTakeDamage = true;
-        colorAlpha = gameObject.GetComponent<SpriteRenderer>().color;
+        animator = GetComponent<Animator>();
+        lasthealtAmount = healtAmount;
     }
-
-    void Update()
+    private void Update()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = colorAlpha;
-
-        healtBar.transform.localScale = scaleChange;
-        healtBar.transform.localPosition = positionChange;
+        if(lasthealtAmount > healtAmount)
+        {
+            lasthealtAmount = healtAmount;
+            StartCoroutine(takeDamage());
+        }
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player") && canTakeDamage)
         {
-            //Red enemy
-            if(color)
-            {
-                healtAmount -= 1f;
-                if (tower)
-                {
-                    scaleChange.x -= 0.3f;
-                    positionChange.x -= 0.15f;
-                }
-                else
-                {
-                    scaleChange.x -= 0.5f;
-                    positionChange.x -= 0.25f;
-                }
-                StartCoroutine(takeDamage());
-            }
-            //Blue enemy
-            if(!color)
-            {
-                healtAmount -= 1f;
-                if (tower)
-                {
-                    scaleChange.x -= 0.3f;
-                    positionChange.x -= 0.15f;
-                }
-                else
-                {
-                    scaleChange.x -= 0.5f;
-                    positionChange.x -= 0.25f;
-                }
-                StartCoroutine(takeDamage());
-            }
-            //Only Kamikaze
-            if(kamikaze)
-            {
-                healtAmount -= 1f;
-            }
+            healtAmount -= 1;
+            StartCoroutine(takeDamage());
         }
     }
 
-    IEnumerator takeDamage()
+    public IEnumerator takeDamage()
     {
         canTakeDamage = false;
-        colorAlpha.a = 0.4f;
-        yield return new WaitForSeconds(1f);
-        colorAlpha.a = 1f;
+        animator.SetTrigger("Hit");
+        yield return new WaitForSeconds(invulnerabilityTime);
         canTakeDamage = true;
     }
 

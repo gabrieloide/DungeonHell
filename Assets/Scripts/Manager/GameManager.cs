@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
         {
             ChangeScene.SetActive(true);
         }
-        
     }
     public void PlayerHurt()
     {
