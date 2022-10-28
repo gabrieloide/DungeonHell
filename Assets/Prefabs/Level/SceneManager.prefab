@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5181646145763816432}
   - component: {fileID: 5181646145763816433}
+  - component: {fileID: 4113922502838146974}
+  - component: {fileID: 7561310288819097449}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -44,3 +46,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTime: 0.5
+--- !u!114 &4113922502838146974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181646145763816434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977378b3704e1da43be355e6adc48d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelPause: {fileID: 0}
+  panel1: {fileID: 0}
+  panel2: {fileID: 0}
+  panel3: {fileID: 0}
+  panelPauseBackground: {fileID: 0}
+  IsPaused: 0
+--- !u!114 &7561310288819097449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181646145763816434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3b873950e45664b8d37e2fcbf6fe88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  global: {fileID: 0}
+  sfx: {fileID: 0}
+  music: {fileID: 0}
+  mixer: {fileID: 0}
