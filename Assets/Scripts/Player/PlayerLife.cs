@@ -60,12 +60,18 @@ public class PlayerLife : MonoBehaviour
         if (healthAmount <= 0)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
             inOver = true;
             GameOver();
             healthAmount = startHealtAmount;
 >>>>>>> Javier5
+=======
+            inOver = true;
+            GameOver();
+            healthAmount = startHealtAmount;
+>>>>>>> 1d7b425d40bb47b44487af16115409c1b22c1188
         }
     }
 
