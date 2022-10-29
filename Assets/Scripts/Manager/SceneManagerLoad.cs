@@ -19,9 +19,23 @@ public class SceneManagerLoad : MonoBehaviour
         }
         animator = GetComponent<Animator>();
     }
+
+    public void startGame()
+    {
+        StartCoroutine(LoadScene(1));
+    }
+    public void mainMenu()
+    {
+        StartCoroutine(LoadScene(0));
+    }
+    public void resetScene()
+    {
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 0));
+    }
+
     public IEnumerator LoadScene(int scene)
     {
-        animator.SetBool(TransitionString, true);
+        animator.SetTrigger(TransitionString);
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }
