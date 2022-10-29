@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class PlayerLife : MonoBehaviour
 {
     public static PlayerLife instance;
+    public float startHealtAmount;
     public float healthAmount;
     public float lastHealtAmount;
     public int HealthPoints;
     public bool canTakeDamage;
+    [Space]
+    public GameObject panelGameOver;
+    public GameObject panelBackground;
+    public bool inOver;
 
     public GameObject[] hearts;
     public Sprite[] heathSprites;
@@ -22,6 +27,10 @@ public class PlayerLife : MonoBehaviour
 
     void Start()
     {
+        healthAmount = FindObjectOfType<HealthBetweenScene>().healthPlayer;
+        startHealtAmount = FindObjectOfType<HealthBetweenScene>().healthPlayer;
+        inOver = false;
+
         canTakeDamage = true;
         lastHealtAmount = healthAmount;
         hearthControlerSprite();
@@ -50,7 +59,13 @@ public class PlayerLife : MonoBehaviour
 
         if (healthAmount <= 0)
         {
+<<<<<<< HEAD
 
+=======
+            inOver = true;
+            GameOver();
+            healthAmount = startHealtAmount;
+>>>>>>> Javier5
         }
     }
 
@@ -59,14 +74,21 @@ public class PlayerLife : MonoBehaviour
         for (int i = 2; i <= 11; i++)
         {
             if (healthAmount < i - 2)
-                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[0];
+                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[0]; //Empty
 
             else if (healthAmount == i - 2)
-                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[1];
+                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[1]; //Mid
 
             else if (healthAmount > i - 2)
-                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[2];
+                hearts[i / 2 - 1].GetComponent<Image>().sprite = heathSprites[2]; //Full
         }
+    }
+
+    public void GameOver()
+    {
+        panelGameOver.SetActive(true);
+        panelBackground.SetActive(true);
+        FindObjectOfType<MenuPause>().Pause();
     }
 
     IEnumerator takeDamage()

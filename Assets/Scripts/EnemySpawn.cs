@@ -42,7 +42,7 @@ public class EnemySpawn : MonoBehaviour
         Debug.Log("Enemy Has spawned");
         for(int i = 0; i < SpawnPoint.Length; i++)
         {
-            Instantiate(enemy, vector2[i], Quaternion.identity);
+            Instantiate(EnemyPrefabs[Random.Range(0,6)], vector2[i], Quaternion.identity);
         }
     }
 

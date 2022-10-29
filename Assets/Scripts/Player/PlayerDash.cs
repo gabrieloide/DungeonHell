@@ -51,6 +51,9 @@ public class PlayerDash : MonoBehaviour
         {
             StartCoroutine(DashTime());
         }
+    }
+    private void FixedUpdate()
+    {
         if (Dash)
         {
             rb2D.velocity = direction;
