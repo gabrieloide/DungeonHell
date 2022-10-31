@@ -19,6 +19,11 @@ public class Projectile : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
     }
+    private void Start()
+    {
+        AudioManager.instance.PlaySoundPlayerShoot();
+    }
+
     public void LaunchProjectile(Vector2 direction)
     {
         rigidBody2D.velocity = direction * speed;

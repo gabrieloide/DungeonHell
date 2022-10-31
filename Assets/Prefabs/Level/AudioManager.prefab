@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2594495211390692600}
   - component: {fileID: 2594495211390692601}
+  - component: {fileID: 7859375315629260304}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -47,13 +48,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2594495212171784496}
   sfxSource: {fileID: 2594495212598478324}
-  music: {fileID: 0}
+  music: {fileID: 8300000, guid: 07928741c94752049849e87ec1f994fb, type: 3}
   buttonClick: {fileID: 8300000, guid: 2397dd0dc7d0f914180312214f26e621, type: 3}
   playerShoot: {fileID: 0}
-  playerDash: {fileID: 0}
-  playerHurt: {fileID: 0}
-  changeColor: {fileID: 0}
-  enemyHurt: {fileID: 0}
+  playerDash: {fileID: 8300000, guid: d018adf5d3b95c24bba01b19a782fd88, type: 3}
+  playerHurt: {fileID: 8300000, guid: 5784625f9600ad64ca4d5b9936c19434, type: 3}
+  changeColor: {fileID: 8300000, guid: c5bc4d40f8f235f4dbe9b1c6964e2dc8, type: 3}
+  enemyHurt: {fileID: 8300000, guid: fbfd53505ca44ca4190333dcfc96137a, type: 3}
+  acornExplode: {fileID: 8300000, guid: 7ee8aa41f32ee0449a396b2b9c2a785a, type: 3}
+  gameOver: {fileID: 8300000, guid: a0bf093d4063e834cb5349431540b7aa, type: 3}
+  buff: {fileID: 8300000, guid: 4107104d272576e4fbb8bda779f04e16, type: 3}
+  treeFalling: {fileID: 8300000, guid: e9d5ebebb3c1cbe45a19035ce7c25025, type: 3}
+--- !u!114 &7859375315629260304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594495211390692603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae93dbceefe59a94e92e05c191a44204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2594495212171784498
 GameObject:
   m_ObjectHideFlags: 0

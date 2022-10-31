@@ -49,6 +49,7 @@ public class PlayerDash : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
+            AudioManager.instance.PlaySoundPlayerDash();
             StartCoroutine(DashTime());
         }
     }

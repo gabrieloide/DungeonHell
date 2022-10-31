@@ -12,18 +12,23 @@ public class BuffInteraction : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("BuffHealth"))
         {
-            if (gameObject.GetComponent<PlayerLife>().healthAmount < 10)
+            AudioManager.instance.PlaySoundBuff();
+            if (gameObject.GetComponent<PlayerLife>().healthAmount == 9)
+                gameObject.GetComponent<PlayerLife>().healthAmount += 1;
+            else if (gameObject.GetComponent<PlayerLife>().healthAmount < 10)
                 gameObject.GetComponent<PlayerLife>().healthAmount += 2;
 
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("BuffAtackSpeed"))
         {
+            AudioManager.instance.PlaySoundBuff();
             StartCoroutine(buffAtackSpeedUp());
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("BuffSpeed"))
         {
+            AudioManager.instance.PlaySoundBuff();
             StartCoroutine(buffSpeedUp());
             Destroy(collision.gameObject);
         }
