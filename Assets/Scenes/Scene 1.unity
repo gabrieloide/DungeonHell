@@ -360,6 +360,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5644307878790736984, guid: 615b52070b8f45148b5029e5ea3a5151, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644307878790736984, guid: 615b52070b8f45148b5029e5ea3a5151, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5644307878790736984, guid: 615b52070b8f45148b5029e5ea3a5151, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5644307878790736985, guid: 615b52070b8f45148b5029e5ea3a5151, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1529,13 +1541,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8167827333832462057, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7480371962187380152, guid: a07f2d7030bbc964fb0266d6a93919bd, type: 3}
+    - target: {fileID: 8167827333832462057, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167827333832462057, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167827333832462057, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8167827333832462059, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_Name
       value: EnemyRedTower
       objectReference: {fileID: 0}
     - target: {fileID: 8167827333832462059, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8167827333832462062, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_RootOrder
@@ -1543,11 +1571,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8167827333832462062, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.56
+      value: 11.28
       objectReference: {fileID: 0}
     - target: {fileID: 8167827333832462062, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.75
+      value: -8.05
       objectReference: {fileID: 0}
     - target: {fileID: 8167827333832462062, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1580,6 +1608,14 @@ PrefabInstance:
     - target: {fileID: 8167827333832462062, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167827333832462063, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167827333832462063, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.875
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
@@ -1680,6 +1716,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8167827333832462059, guid: 170c46b085b680444aa2d51a893f34b5, type: 3}
   m_PrefabInstance: {fileID: 834631625}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &967171426
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967171425}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &989054173
 GameObject:
   m_ObjectHideFlags: 0

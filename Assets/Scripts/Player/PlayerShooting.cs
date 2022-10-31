@@ -33,12 +33,12 @@ public class PlayerShooting : MonoBehaviour
             {
                 case PlayerColorState.PlayerRed:
                     Projectile projectileRed = Instantiate(projectilePrefabRed, ShootPosition.position, transform.rotation);
-                    projectileRed.LaunchProjectile(transform.up);
+                   //projectileRed.LaunchProjectile(transform.up);
                     canShoot = false;
                     break;
                 case PlayerColorState.PlayerBlue:
                     Projectile projectileBlue = Instantiate(projectilePrefrabBlue, ShootPosition.position, transform.rotation);
-                    projectileBlue.LaunchProjectile(transform.up);
+                    //projectileBlue.LaunchProjectile(transform.up);
                     canShoot = false;
                     break;
             }

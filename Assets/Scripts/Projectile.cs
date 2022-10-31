@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
                 if (collision.GetComponent<EnemyHealth>().kamikaze || collision.CompareTag("EnemyRed") && collision.GetComponent<EnemyHealth>().canTakeDamage)
                 {
                     collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                 }
                 
                 else if (collision.gameObject.CompareTag("Player"))
@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
                 if (collision.GetComponent<EnemyHealth>().kamikaze || collision.CompareTag("EnemyBlue") && collision.GetComponent<EnemyHealth>().canTakeDamage)
                 {
                     collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                 }
                 else if (collision.CompareTag("Player"))
                 {
