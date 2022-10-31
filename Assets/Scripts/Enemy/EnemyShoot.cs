@@ -10,13 +10,13 @@ public class EnemyShoot : MonoBehaviour
 
     public float fireRate;
     public float nextFire;    
-    private bool canShoot = true;
+    private bool canShoot;
 
-    void Start()
+    private void Start()
     {
-        fireRate = 1f;
+        canShoot = false;
+        StartCoroutine(Cooldown());
     }
-
 
     void Update()
     {

@@ -10,8 +10,6 @@ public enum PlayerColorState
 public class PlayerMovement : MonoBehaviour
 {
     public PlayerColorState PlayerCurrentColor = PlayerColorState.PlayerBlue;
-    public delegate void Delegate();
-    public Delegate Death;
 
     Rigidbody2D rigidBody2D;
     public float speed;
@@ -74,12 +72,5 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat(horizontal, Input.GetAxisRaw(horizontal));
         animator.SetFloat(vertical, Input.GetAxisRaw(vertical));
         Vector3.Normalize(transform.position);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("EnemyRed"))
-        {
-            Death();
-        }
     }
 }

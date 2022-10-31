@@ -11,6 +11,7 @@ TagManager:
   - BuffAtackSpeed
   - BuffHealth
   - BuffSpeed
+  - Boss
   layers:
   - Default
   - TransparentFX

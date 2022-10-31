@@ -46,11 +46,11 @@ MonoBehaviour:
   EnemyPrefabs:
   - {fileID: 4148765960938128381, guid: 4e90bfbcfea9f26498c16c08d32309d3, type: 3}
   - {fileID: 5604871792011982357, guid: b0b2edcc3daef324b9cf15637b508d00, type: 3}
-  - {fileID: 7334163129070191822, guid: da48691ec88f77643a236123aad85c8e, type: 3}
   - {fileID: 8258292167735566878, guid: b980a8c74cccf0444886cd2c9c7b0b89, type: 3}
   - {fileID: 6000472223274863878, guid: ce7e25e087b234a4aae93b550d830a9f, type: 3}
   - {fileID: 7662871390844151015, guid: f2e2d2c1d66dc464ba43a37f935cb369, type: 3}
   SpawnPoint: []
+  towersSpawn: []
   waves: 0
   timeToSpawn: 7
   timeCd: 15

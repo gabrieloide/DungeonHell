@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     [Header("LevelStats")]
     public int enemyAmount;
+    public int wavesRemaining;
+    public Text textWavesRemaining;
     public GameObject ChangeScene;
 
     private void Awake()
@@ -22,16 +25,22 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerAlive = true;
-        player.Death += PlayerHurt; //Aqui se llama el delegado para que se ejecute la accion correspondiente
+        //player.Death += PlayerHurt; //Aqui se llama el delegado para que se ejecute la accion correspondiente
 
     }
     private void Update()
     {
+        enemyAmount = GameObject.FindGameObjectsWithTag("EnemyBlue").Length + GameObject.FindGameObjectsWithTag("EnemyRed").Length;
+
+        wavesRemaining = FindObjectOfType<EnemySpawn>().waves;
+
+        textWavesRemaining.text = "Waves Remaining: " + wavesRemaining.ToString();
+
         if (!playerAlive)
         {
             StartCoroutine(ShowGameOverScreen());   
         }
-        if (enemyAmount == 0)
+        if (enemyAmount == 0 && wavesRemaining == 0)
         {
             ChangeScene.SetActive(true);
         }

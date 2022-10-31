@@ -11,19 +11,17 @@ public class PlayerLife : MonoBehaviour
     public float lastHealtAmount;
     public int HealthPoints;
     public bool canTakeDamage;
+    public float invulnerabilityTime;
     [Space]
     public GameObject panelGameOver;
     public GameObject panelBackground;
+    public GameObject panelHUD;
     public bool inOver;
 
     public GameObject[] hearts;
     public Sprite[] heathSprites;
 
-    public float invulnerabilityTime;
-
     Animator animator;
-
-    public Color colorAlpha;
 
     void Start()
     {
@@ -59,9 +57,24 @@ public class PlayerLife : MonoBehaviour
 
         if (healthAmount <= 0)
         {
-            inOver = true;
             GameOver();
             healthAmount = startHealtAmount;
+        }
+        if (inOver)
+        {
+            canTakeDamage = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyRed") && gameObject.GetComponent<PlayerMovement>().PlayerCurrentColor == PlayerColorState.PlayerRed && canTakeDamage)
+        {
+            healthAmount -= 1;
+        }
+        if (collision.CompareTag("EnemyBlue") && gameObject.GetComponent<PlayerMovement>().PlayerCurrentColor == PlayerColorState.PlayerBlue && canTakeDamage)
+        {
+            healthAmount -= 1;
         }
     }
 
@@ -82,8 +95,10 @@ public class PlayerLife : MonoBehaviour
 
     public void GameOver()
     {
+        inOver = true;
         panelGameOver.SetActive(true);
         panelBackground.SetActive(true);
+        panelHUD.SetActive(false);
         FindObjectOfType<MenuPause>().Pause();
     }
 

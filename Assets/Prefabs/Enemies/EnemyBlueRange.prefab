@@ -166,6 +166,7 @@ MonoBehaviour:
   healtAmount: 3
   lasthealtAmount: 0
   canTakeDamage: 0
+  kamikaze: 0
   invulnerabilityTime: 0.2
 --- !u!114 &8258292167735566887
 MonoBehaviour:
@@ -182,7 +183,7 @@ MonoBehaviour:
   enemyBulletRedPrefab: {fileID: 13540946544721158, guid: ac9c2b8312635d54bb307ed304410ca6, type: 3}
   enemyBulletBluePrefab: {fileID: 1486208409365274333, guid: 943cad50c33082743a30eb54c98a9921, type: 3}
   color: 0
-  fireRate: 0
+  fireRate: 2
   nextFire: 0
 --- !u!114 &-772584474575977277
 MonoBehaviour:

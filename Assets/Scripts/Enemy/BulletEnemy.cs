@@ -19,10 +19,9 @@ public class BulletEnemy : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(direction.normalized * speed * Time.deltaTime);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

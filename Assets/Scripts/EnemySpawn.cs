@@ -6,10 +6,10 @@ public class EnemySpawn : MonoBehaviour
 {
     public GameObject[] EnemyPrefabs;
     public GameObject[] SpawnPoint;
+    public GameObject[] towersSpawn;
     Vector2[] vector2;
 
     public int waves;
-    private int wavesCount;
     public float timeToSpawn;
     public float timeCd;
     private bool canSpawn;
@@ -25,14 +25,15 @@ public class EnemySpawn : MonoBehaviour
         
         canSpawn = false;
         StartCoroutine(SpawnCd());
+        StartCoroutine(SpawnTowers());
     }
     void Update()
     {
-        if (canSpawn && wavesCount < waves)
+        if (canSpawn && waves > 0)
         {
             SpawnAenemy(EnemyPrefabs[Random.Range(0,6)]);
             StartCoroutine(SpawnCd());
-            wavesCount++;
+            waves--;
         }
 
     }
@@ -42,7 +43,7 @@ public class EnemySpawn : MonoBehaviour
         Debug.Log("Enemy Has spawned");
         for(int i = 0; i < SpawnPoint.Length; i++)
         {
-            Instantiate(EnemyPrefabs[Random.Range(0,6)], vector2[i], Quaternion.identity);
+            Instantiate(EnemyPrefabs[Random.Range(0,5)], vector2[i], Quaternion.identity);
         }
     }
 
@@ -52,5 +53,14 @@ public class EnemySpawn : MonoBehaviour
         yield return new WaitForSeconds(timeToSpawn);
         timeToSpawn = timeCd;
         canSpawn = true;
+    }
+
+    IEnumerator SpawnTowers()
+    {
+        yield return new WaitForSeconds(timeToSpawn - 2);
+        for(int i = 0; i < towersSpawn.Length; i++)
+        {
+            towersSpawn[i].SetActive(true);
+        }
     }
 }
