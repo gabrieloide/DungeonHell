@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     public GameObject boss;
+    public GameObject finalAnimation;
+    public GameObject SpawnObject;
     public float healthAmount;
     private float totalHealthAmount;
     private float lastHealtAmount;
@@ -34,15 +36,22 @@ public class BossHealth : MonoBehaviour
 
     void Update()
     {
-        if (healthAmount <= 0)
-        {
-            Destroy(boss);
-            Destroy(gameObject);
-        }
+        
         if (lastHealtAmount > healthAmount)
         {
             StartCoroutine(takeDamage());
             lastHealtAmount = healthAmount;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (healthAmount <= 0)
+        {
+            finalAnimation.SetActive(true);
+            SpawnObject.SetActive(false);
+            GameManager.instance.GameFinish();
+            Destroy(boss);
+            Destroy(gameObject);
         }
     }
 
@@ -93,6 +102,7 @@ public class BossHealth : MonoBehaviour
 
     IEnumerator takeDamage()
     {
+        AudioManager.instance.PlaySoundEnemyHurt();
         canTakeDamage = false;
         animator.SetTrigger("Hit");
         yield return new WaitForSeconds(invulnerabilityTime);

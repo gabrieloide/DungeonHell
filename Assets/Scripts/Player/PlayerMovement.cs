@@ -36,11 +36,13 @@ public class PlayerMovement : MonoBehaviour
         //Change the type of the projectile that you can fire
         if (Input.GetMouseButtonDown(1) && ChangeColor == false)
         {
+            AudioManager.instance.PlaySoundChangeColor();
             PlayerCurrentColor = PlayerColorState.PlayerRed;
             ChangeColor = true;
         }
         else if (Input.GetMouseButtonDown(1) && ChangeColor == true)
         {
+            AudioManager.instance.PlaySoundChangeColor();
             ChangeColor = false;
             PlayerCurrentColor = PlayerColorState.PlayerBlue;
         }

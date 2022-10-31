@@ -94,6 +94,7 @@ public class PlayerLife : MonoBehaviour
 
     public void GameOver()
     {
+        AudioManager.instance.PlaySoundGameOver();
         inOver = true;
         panelGameOver.SetActive(true);
         panelBackground.SetActive(true);
@@ -103,6 +104,7 @@ public class PlayerLife : MonoBehaviour
 
     IEnumerator takeDamage()
     {
+        AudioManager.instance.PlaySoundPlayerHurt();
         canTakeDamage = false;
         animator.SetTrigger("Hit");
         yield return new WaitForSeconds(invulnerabilityTime);

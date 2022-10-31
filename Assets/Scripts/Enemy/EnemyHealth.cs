@@ -38,13 +38,15 @@ public class EnemyHealth : MonoBehaviour
     {
         if(kamikaze && collision.CompareTag("Player") && collision.GetComponent<PlayerLife>().canTakeDamage)
         {
-            collision.GetComponent<PlayerLife>().healthAmount -= 1;
+            AudioManager.instance.PlaySoundAcornExplode();
+            collision.GetComponent<PlayerLife>().healthAmount -= 2;
             Destroy(gameObject);
         }
     }
 
     public IEnumerator takeDamage()
     {
+        AudioManager.instance.PlaySoundEnemyHurt();
         canTakeDamage = false;
         animator.SetTrigger("Hit");
         yield return new WaitForSeconds(invulnerabilityTime);

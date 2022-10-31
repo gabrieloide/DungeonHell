@@ -45,6 +45,13 @@ public class GameManager : MonoBehaviour
             ChangeScene.SetActive(true);
         }
     }
+
+    public void GameFinish()
+    {
+        AudioManager.instance.PlaySoundTreeFalling();
+        StartCoroutine(GoCredits());
+    }
+
     public void PlayerHurt()
     {
         PlayerLife.instance.HealthPoints -= 1;
@@ -59,5 +66,11 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<UIManager>().animator.SetBool("LevelFinished",true);
         yield return new WaitForSeconds(4);
         FindObjectOfType<UIManager>().GameOverScreen();
+    }
+
+    IEnumerator GoCredits()
+    {
+        yield return new WaitForSeconds(15);
+        SceneManagerLoad.instance.credits();
     }
 }
