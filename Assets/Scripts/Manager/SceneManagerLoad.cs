@@ -28,6 +28,14 @@ public class SceneManagerLoad : MonoBehaviour
     {
         StartCoroutine(LoadScene(0));
     }
+    public void credits()
+    {
+        StartCoroutine(LoadScene(5));
+    }
+    public void exit()
+    {
+        Application.Quit();
+    }
     public void resetScene()
     {
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 0));
@@ -35,7 +43,7 @@ public class SceneManagerLoad : MonoBehaviour
 
     public IEnumerator LoadScene(int scene)
     {
-        animator.SetTrigger(TransitionString);
+        //animator.SetTrigger(TransitionString);
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BuffInteraction : MonoBehaviour
 {
+    public float speedBuff;
+    public float fireRateBuff;
+    public float timeBuff;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("BuffHealth"))
         {
             if (gameObject.GetComponent<PlayerLife>().healthAmount < 10)
-                gameObject.GetComponent<PlayerLife>().healthAmount += 1;
+                gameObject.GetComponent<PlayerLife>().healthAmount += 2;
 
             Destroy(collision.gameObject);
         }
@@ -27,15 +31,15 @@ public class BuffInteraction : MonoBehaviour
 
     IEnumerator buffSpeedUp()
     {
-        gameObject.GetComponent<PlayerMovement>().speed += 1;
-        yield return new WaitForSeconds(2);
-        gameObject.GetComponent<PlayerMovement>().speed -= 1;
+        gameObject.GetComponent<PlayerMovement>().speed += speedBuff;
+        yield return new WaitForSeconds(timeBuff);
+        gameObject.GetComponent<PlayerMovement>().speed -= speedBuff;
     }
 
     IEnumerator buffAtackSpeedUp()
     {
-        gameObject.GetComponent<PlayerMovement>().Weapon.GetComponent<PlayerShooting>().fireRate += 1;
-        yield return new WaitForSeconds(2);
-        gameObject.GetComponent<PlayerMovement>().Weapon.GetComponent<PlayerShooting>().fireRate -= 1;
+        gameObject.GetComponent<PlayerMovement>().Weapon.GetComponent<PlayerShooting>().fireRate += fireRateBuff;
+        yield return new WaitForSeconds(timeBuff);
+        gameObject.GetComponent<PlayerMovement>().Weapon.GetComponent<PlayerShooting>().fireRate -= fireRateBuff;
     }
 }

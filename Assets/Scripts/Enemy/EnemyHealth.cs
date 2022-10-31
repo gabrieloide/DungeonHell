@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public float lasthealtAmount;
     public bool canTakeDamage;
     public static EnemyHealth instance;
+    public bool kamikaze;
 
     Animator animator;
     public float invulnerabilityTime;
@@ -33,19 +34,19 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(takeDamage());
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player") && canTakeDamage)
+        if(kamikaze && collision.CompareTag("Player") && collision.GetComponent<PlayerLife>().canTakeDamage)
         {
-            healtAmount -= 1;
-            StartCoroutine(takeDamage());
+            collision.GetComponent<PlayerLife>().healthAmount -= 1;
+            Destroy(gameObject);
         }
     }
 
     public IEnumerator takeDamage()
     {
         canTakeDamage = false;
-        animator.SetTrigger("Hit");
+        //animator.SetTrigger("Hit");
         yield return new WaitForSeconds(invulnerabilityTime);
         canTakeDamage = true;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuPause : MonoBehaviour
 {
     public GameObject panelPause;
+    public GameObject panelGameOver;
     public GameObject panel1;
     public GameObject panel2;
     public GameObject panel3;
@@ -44,6 +45,7 @@ public class MenuPause : MonoBehaviour
     public void Resume()
     {
         panelPause.SetActive(false);
+        panelGameOver.SetActive(false);
         panelPauseBackground.SetActive(false);
         Time.timeScale = 1;
         IsPaused = false;

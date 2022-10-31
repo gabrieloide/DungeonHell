@@ -4,118 +4,94 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
+    public GameObject boss;
     public float healthAmount;
+    private float totalHealthAmount;
+    private float lastHealtAmount;
+    public float invulnerabilityTime;
     public bool canTakeDamage;
-    public Color colorAlpha;
-    public GameObject healthBar;
-    private Vector2 scaleBar, positionBar;
-    public GameObject[] EnemyPrefabs;
-
+    private bool f1, f2, f3, f4; //fases para modificacion de ataques y sprite
 
     void Start()
     {
-        healthAmount = 15;
+        lastHealtAmount = healthAmount;
+        totalHealthAmount = healthAmount;
         canTakeDamage = true;
-        colorAlpha = gameObject.GetComponent<SpriteRenderer>().color;
+        f1 = true;
+        f2 = true;
+        f3 = true;
+        f4 = true;
 
-        scaleBar.x = 15f;
-        scaleBar.y = 0.5f;
-        positionBar.y = -4.5f;
+        Debug.Log(totalHealthAmount / 5 * 4);
+        Debug.Log(totalHealthAmount / 5 * 3);
+        Debug.Log(totalHealthAmount / 5 * 2);
+        Debug.Log(totalHealthAmount / 5);
     }
 
     void Update()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = colorAlpha;
-
         if (healthAmount <= 0)
         {
+            Destroy(boss);
             Destroy(gameObject);
         }
-
-        healthBar.transform.localScale = scaleBar;
-        healthBar.transform.localPosition = positionBar;
+        if (lastHealtAmount > healthAmount)
+        {
+            StartCoroutine(takeDamage());
+            lastHealtAmount = healthAmount;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && canTakeDamage)
+        if (collision.GetComponent<Projectile>() && canTakeDamage)
         {
-            healthAmount -= 1f;
-            scaleBar.x -= 1f;
-            positionBar.x -= 0.5f;
+            healthAmount -= FindObjectOfType<PlayerShooting>().damage;
+            Destroy(collision);
             StartCoroutine(takeDamage());
-
-            if (healthAmount == 12)
+            
+            if (healthAmount <= totalHealthAmount / 5 * 4 && f1)
             {
-                wave1(5);
+                f1 = false;
+                HardAtacks(0.1f,1,0);
             }
-            if (healthAmount == 8)
+            else if (healthAmount <= totalHealthAmount / 5 * 3 && f2)
             {
-                wave2(7);
+                f2 = false;
+                HardAtacks(0.1f,2,1);
             }
-            if (healthAmount == 6)
+            else if (healthAmount <= totalHealthAmount / 5 * 2 && f3)
             {
-                wave3(9);
+                f3 = false;
+                HardAtacks(0.2f,2,0);
             }
-            if (healthAmount == 3)
+            else if (healthAmount <= totalHealthAmount / 5 && f4)
             {
-                wave4(12);
+                f4 = false;
+                HardAtacks(0.2f,2,1);
             }
         }
     }
 
-
-    private void wave1(int numEnemies)
+    public void HardAtacks(float a, int b, int c) //a(fireRate) b(bulletAmount) c(spiralNumber)
     {
-        for (int i = 0; i < numEnemies; i++)
-        {
-            SpawnAenemy(EnemyPrefabs[UnityEngine.Random.Range(0, 6)]);
-        }
-    }
-    private void wave2(int numEnemies)
-    {
-        for (int i = 0; i < numEnemies; i++)
-        {
-            SpawnAenemy(EnemyPrefabs[UnityEngine.Random.Range(0, 6)]);
-        }
-    }
-
-    private void wave3(int numEnemies)
-    {
-        for(int i = 0; i < numEnemies; i++)
-        {
-            SpawnAenemy(EnemyPrefabs[UnityEngine.Random.Range(0, 6)]);
-        }
-    }
-
-    private void wave4(int numEnemies)
-    {
-        for (int i = 0; i < numEnemies; i++)
-        {
-            SpawnAenemy(EnemyPrefabs[UnityEngine.Random.Range(0, 6)]);
-        }
-    }
-
-    private void SpawnAenemy(GameObject enemy)
-    {
-        Debug.Log("Enemy Has spawned");
-        Instantiate(enemy, new Vector2(Random.Range(-8f, 8f), Random.Range(4.5f, 3.5f)), Quaternion.identity);
+        //Shoot time
+        gameObject.GetComponent<BossShoot>().changeAtackTime -= 1;
+        gameObject.GetComponent<BossShoot>().timeBetweenAtacks -= 0.2f;
+        //Atack 0
+        gameObject.GetComponent<BossAtack0>().fireRate -= a;
+        //Atack 1
+        gameObject.GetComponent<BossAtack1>().fireRate -= a;
+        gameObject.GetComponent<BossAtack1>().bulletsAmount += b;
+        //Atack 2
+        gameObject.GetComponent<BossAtack2>().spiralNumber += c;
     }
 
     IEnumerator takeDamage()
     {
         canTakeDamage = false;
-        /*for (int i = 0; i<3; i++)
-        {
-            colorAlpha.a = 0.2f;
-            yield return new WaitForSeconds(0.2f);
-            colorAlpha.a = 0.5f;
-            yield return new WaitForSeconds(0.5f);
-        }*/
-        colorAlpha.a = 0.5f;
-        yield return new WaitForSeconds(1f);
-        colorAlpha.a = 1f;
+
+        yield return new WaitForSeconds(invulnerabilityTime);
         canTakeDamage = true;
     }
-
 }

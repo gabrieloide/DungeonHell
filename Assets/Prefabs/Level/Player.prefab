@@ -100,8 +100,8 @@ MonoBehaviour:
   projectilePrefabRed: {fileID: 2541424236216109393, guid: 0407b35f2cd8f9e47846c9ef9583fe6e, type: 3}
   projectilePrefrabBlue: {fileID: 2541424236216109393, guid: a2a1842f91b2e244997798f4dde7b00d, type: 3}
   rotationSpeed: 15.5
-  fireRate: 2
-  damage: 3
+  fireRate: 1
+  damage: 1
 --- !u!1 &5679036025147366728
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,10 +205,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e663e44bcb797842984c802ef280ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAmount: 0
+  startHealtAmount: 0
+  healthAmount: 10
   lastHealtAmount: 0
   HealthPoints: 1
-  canTakeDamage: 0
+  canTakeDamage: 1
+  invulnerabilityTime: 1
+  panelGameOver: {fileID: 0}
+  panelBackground: {fileID: 0}
+  panelHUD: {fileID: 0}
+  inOver: 0
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -219,7 +225,6 @@ MonoBehaviour:
   - {fileID: 4001774194934266863, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
   - {fileID: 6063720302124274223, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
   - {fileID: -6418410427455501101, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
-  colorAlpha: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5679036025147366581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,8 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCurrentColor: 1
-  speed: 3
-  speedSlowOnClick: 0
+  speed: 5
+  speedSlowOnClick: 1.5
   Weapon: {fileID: 5679036025091544374}
 --- !u!50 &5679036025147366580
 Rigidbody2D:
@@ -314,6 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b63cd1ef1ca6214895cedda7127e404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBuff: 2
+  fireRateBuff: 1.2
+  timeBuff: 2.5
 --- !u!114 &7351974202765113664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7a17d78ff094d48b1e4b9284dea374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  speed: 9
   dashTime: 0.2
   dashColdown: 1
 --- !u!1 &5679036025220696919
