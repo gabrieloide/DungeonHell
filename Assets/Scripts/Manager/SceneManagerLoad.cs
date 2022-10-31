@@ -22,7 +22,7 @@ public class SceneManagerLoad : MonoBehaviour
 
     public void startGame()
     {
-        StartCoroutine(LoadScene(1));
+        StartCoroutine(LoadScene(6));
     }
     public void mainMenu()
     {
@@ -43,7 +43,7 @@ public class SceneManagerLoad : MonoBehaviour
 
     public IEnumerator LoadScene(int scene)
     {
-        //animator.SetTrigger(TransitionString);
+        animator.SetTrigger(TransitionString);
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(scene);
     }

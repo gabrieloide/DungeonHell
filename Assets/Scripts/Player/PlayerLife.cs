@@ -77,7 +77,6 @@ public class PlayerLife : MonoBehaviour
             healthAmount -= 1;
         }
     }
-
     public void hearthControlerSprite()
     {
         for (int i = 2; i <= 11; i++)

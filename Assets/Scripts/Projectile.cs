@@ -29,10 +29,11 @@ public class Projectile : MonoBehaviour
         switch (projectileColor)
         {
             case ProjectileColor.ProjectileRed:
-                if (collision.GetComponent<EnemyHealth>().kamikaze || collision.CompareTag("EnemyRed") && collision.GetComponent<EnemyHealth>().canTakeDamage)
+                if (//collision.GetComponent<EnemyHealth>().kamikaze ||
+                    collision.CompareTag("EnemyRed") && collision.GetComponent<EnemyHealth>().canTakeDamage)
                 {
                     collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
-                    //Destroy(gameObject);
+                    Destroy(gameObject);
                 }
                 
                 else if (collision.gameObject.CompareTag("Player"))
@@ -42,7 +43,8 @@ public class Projectile : MonoBehaviour
 
                 break;
             case ProjectileColor.ProjectileBlue:
-                if (collision.GetComponent<EnemyHealth>().kamikaze || collision.CompareTag("EnemyBlue") && collision.GetComponent<EnemyHealth>().canTakeDamage)
+                if (//collision.GetComponent<EnemyHealth>().kamikaze ||
+                    collision.CompareTag("EnemyBlue") && collision.GetComponent<EnemyHealth>().canTakeDamage)
                 {
                     collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
                     //Destroy(gameObject);

@@ -7,6 +7,6 @@ public class NextLevelAnimation : MonoBehaviour
 {
     private void Start()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 }
