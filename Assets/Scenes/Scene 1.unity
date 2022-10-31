@@ -1235,6 +1235,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 316602632}
     - target: {fileID: 5679036025147366578, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
+      propertyPath: startHealtAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679036025147366578, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
       objectReference: {fileID: 822665542}
@@ -1270,6 +1274,10 @@ PrefabInstance:
       propertyPath: heathSprites.Array.data[2]
       value: 
       objectReference: {fileID: -6418410427455501101, guid: f9d32057c27df33418b17dc6e51bacf1, type: 3}
+    - target: {fileID: 5679036025147366579, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 742914cf2ab1fce449975d65a58044fb, type: 2}
     - target: {fileID: 5679036025147366582, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
       propertyPath: m_RootOrder
       value: 4

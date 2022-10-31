@@ -46,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
     public IEnumerator takeDamage()
     {
         canTakeDamage = false;
-        //animator.SetTrigger("Hit");
+        animator.SetTrigger("Hit");
         yield return new WaitForSeconds(invulnerabilityTime);
         canTakeDamage = true;
     }

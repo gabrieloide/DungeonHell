@@ -164,6 +164,7 @@ MonoBehaviour:
   healtAmount: 3
   lasthealtAmount: 0
   canTakeDamage: 0
+  kamikaze: 0
   invulnerabilityTime: 0.2
 --- !u!114 &7720062089796990979
 MonoBehaviour:
