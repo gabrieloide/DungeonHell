@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5644307878790736996}
   - component: {fileID: 5644307878790736986}
   - component: {fileID: -5564942114075805913}
+  - component: {fileID: -691843868974404052}
   m_Layer: 0
   m_Name: EnemyBlueTowe
   m_TagString: EnemyBlue
@@ -184,3 +185,22 @@ MonoBehaviour:
   - {fileID: 1669698238427929591, guid: f404f7e73d5c2cd45bb776cd3ca8c2a3, type: 3}
   - {fileID: 3672602989666061488, guid: 874338692ef84d24784b84a7ed2175b4, type: 3}
   - {fileID: 5742655202825748265, guid: 89690fc747d29ab41b80c6abbbb0ae21, type: 3}
+--- !u!95 &-691843868974404052
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644307878790736995}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0021aa49cc28a74fbc8d97054f59672, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8167827333832462058}
   - component: {fileID: 8167827333832462053}
   - component: {fileID: -1683811842283054558}
+  - component: {fileID: 8266597993503184786}
   m_Layer: 0
   m_Name: EnemyRedTower
   m_TagString: EnemyRed
@@ -184,3 +185,22 @@ MonoBehaviour:
   - {fileID: 1669698238427929591, guid: f404f7e73d5c2cd45bb776cd3ca8c2a3, type: 3}
   - {fileID: 3672602989666061488, guid: 874338692ef84d24784b84a7ed2175b4, type: 3}
   - {fileID: 5742655202825748265, guid: 89690fc747d29ab41b80c6abbbb0ae21, type: 3}
+--- !u!95 &8266597993503184786
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167827333832462059}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 94813f278cf17d14c94edaa47d951716, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

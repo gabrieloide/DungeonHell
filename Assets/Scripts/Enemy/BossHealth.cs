@@ -12,6 +12,8 @@ public class BossHealth : MonoBehaviour
     public bool canTakeDamage;
     private bool f1, f2, f3, f4; //fases para modificacion de ataques y sprite
 
+    Animator animator;
+
     void Start()
     {
         lastHealtAmount = healthAmount;
@@ -21,6 +23,8 @@ public class BossHealth : MonoBehaviour
         f2 = true;
         f3 = true;
         f4 = true;
+
+        animator = GetComponentInParent<Animator>();
 
         Debug.Log(totalHealthAmount / 5 * 4);
         Debug.Log(totalHealthAmount / 5 * 3);
@@ -90,7 +94,7 @@ public class BossHealth : MonoBehaviour
     IEnumerator takeDamage()
     {
         canTakeDamage = false;
-
+        animator.SetTrigger("Hit");
         yield return new WaitForSeconds(invulnerabilityTime);
         canTakeDamage = true;
     }

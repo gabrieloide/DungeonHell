@@ -12,6 +12,7 @@ TagManager:
   - BuffHealth
   - BuffSpeed
   - Boss
+  - Kamikaze
   layers:
   - Default
   - TransparentFX

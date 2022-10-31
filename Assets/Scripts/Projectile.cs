@@ -47,13 +47,17 @@ public class Projectile : MonoBehaviour
                     collision.CompareTag("EnemyBlue") && collision.GetComponent<EnemyHealth>().canTakeDamage)
                 {
                     collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
-                    //Destroy(gameObject);
+                    Destroy(gameObject);
                 }
                 else if (collision.CompareTag("Player"))
                 {
                     return;
                 }
                 break;
+        }
+        if (collision.gameObject.CompareTag("Kamikaze"))
+        {
+            collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
         }
     }
 }
