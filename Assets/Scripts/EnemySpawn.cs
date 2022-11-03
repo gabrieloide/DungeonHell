@@ -31,14 +31,14 @@ public class EnemySpawn : MonoBehaviour
     {
         if (canSpawn && waves > 0)
         {
-            SpawnAenemy(EnemyPrefabs[Random.Range(0,6)]);
+            SpawnAenemy();
             StartCoroutine(SpawnCd());
             waves--;
         }
 
     }
 
-    private void SpawnAenemy(GameObject enemy)
+    private void SpawnAenemy()
     {
         Debug.Log("Enemy Has spawned");
         for(int i = 0; i < SpawnPoint.Length; i++)

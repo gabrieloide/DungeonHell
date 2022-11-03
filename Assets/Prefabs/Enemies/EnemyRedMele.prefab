@@ -164,7 +164,8 @@ MonoBehaviour:
   healtAmount: 3
   lasthealtAmount: 0
   canTakeDamage: 0
-  invulnerabilityTime: 0.2
+  kamikaze: 0
+  invulnerabilityTime: 0
 --- !u!114 &-4505750573562090034
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -165,7 +165,7 @@ MonoBehaviour:
   lasthealtAmount: 0
   canTakeDamage: 0
   kamikaze: 1
-  invulnerabilityTime: 0.2
+  invulnerabilityTime: 0
 --- !u!114 &240829635100937308
 MonoBehaviour:
   m_ObjectHideFlags: 0

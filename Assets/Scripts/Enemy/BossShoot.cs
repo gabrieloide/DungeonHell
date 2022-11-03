@@ -6,7 +6,7 @@ public class BossShoot : MonoBehaviour
 {
     public float changeAtackTime;
     public float timeBetweenAtacks;
-    public float changeTime;
+    private float changeTime;
 
     private void Start()
     {

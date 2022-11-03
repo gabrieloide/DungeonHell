@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    public GameObject boss;
     public GameObject finalAnimation;
     public GameObject SpawnObject;
     public float healthAmount;
@@ -13,6 +12,10 @@ public class BossHealth : MonoBehaviour
     public float invulnerabilityTime;
     public bool canTakeDamage;
     private bool f1, f2, f3, f4; //fases para modificacion de ataques y sprite
+    [Space]
+    public float fireRateUp;
+    public int bulletAmountAtack1;
+    public int spiralNumberAtack2;
 
     Animator animator;
 
@@ -21,10 +24,10 @@ public class BossHealth : MonoBehaviour
         lastHealtAmount = healthAmount;
         totalHealthAmount = healthAmount;
         canTakeDamage = true;
-        f1 = true;
-        f2 = true;
-        f3 = true;
-        f4 = true;
+        f1 = false;
+        f2 = false;
+        f3 = false;
+        f4 = false;
 
         animator = GetComponentInParent<Animator>();
 
@@ -50,7 +53,6 @@ public class BossHealth : MonoBehaviour
             finalAnimation.SetActive(true);
             SpawnObject.SetActive(false);
             GameManager.instance.GameFinish();
-            Destroy(boss);
             Destroy(gameObject);
         }
     }
@@ -60,28 +62,27 @@ public class BossHealth : MonoBehaviour
         if (collision.GetComponent<Projectile>() && canTakeDamage)
         {
             healthAmount -= FindObjectOfType<PlayerShooting>().damage;
-            Destroy(collision);
-            StartCoroutine(takeDamage());
+            Destroy(collision.gameObject);
             
-            if (healthAmount <= totalHealthAmount / 5 * 4 && f1)
+            if (healthAmount <= totalHealthAmount / 5 * 4 && !f1)
             {
-                f1 = false;
-                HardAtacks(0.1f,1,0);
+                f1 = true;
+                HardAtacks(fireRateUp, bulletAmountAtack1, spiralNumberAtack2-1);
             }
-            else if (healthAmount <= totalHealthAmount / 5 * 3 && f2)
+            else if (healthAmount <= totalHealthAmount / 5 * 3 && !f2)
             {
-                f2 = false;
-                HardAtacks(0.1f,2,1);
+                f2 = true;
+                HardAtacks(fireRateUp, bulletAmountAtack1, spiralNumberAtack2);
             }
-            else if (healthAmount <= totalHealthAmount / 5 * 2 && f3)
+            else if (healthAmount <= totalHealthAmount / 5 * 2 && !f3)
             {
-                f3 = false;
-                HardAtacks(0.2f,2,0);
+                f3 = true;
+                HardAtacks(fireRateUp, bulletAmountAtack1, spiralNumberAtack2);
             }
-            else if (healthAmount <= totalHealthAmount / 5 && f4)
+            else if (healthAmount <= totalHealthAmount / 5 && !f4)
             {
-                f4 = false;
-                HardAtacks(0.2f,2,1);
+                f4 = true;
+                HardAtacks(fireRateUp, bulletAmountAtack1, spiralNumberAtack2);
             }
         }
     }
@@ -89,8 +90,8 @@ public class BossHealth : MonoBehaviour
     public void HardAtacks(float a, int b, int c) //a(fireRate) b(bulletAmount) c(spiralNumber)
     {
         //Shoot time
-        gameObject.GetComponent<BossShoot>().changeAtackTime -= 1;
-        gameObject.GetComponent<BossShoot>().timeBetweenAtacks -= 0.2f;
+        gameObject.GetComponent<BossShoot>().changeAtackTime -= 1.25f;
+        gameObject.GetComponent<BossShoot>().timeBetweenAtacks -= 0.3f;
         //Atack 0
         gameObject.GetComponent<BossAtack0>().fireRate -= a;
         //Atack 1
