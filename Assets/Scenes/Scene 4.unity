@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeAtackTime: 9
-  timeBetweenAtacks: 1.8
+  timeBetweenAtacks: 1.5
 --- !u!114 &2113945362
 MonoBehaviour:
   m_ObjectHideFlags: 0
