@@ -1316,10 +1316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5679036025091544373, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
-      propertyPath: fireRate
-      value: 1.7
-      objectReference: {fileID: 0}
     - target: {fileID: 5679036025147366578, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
       propertyPath: panelHUD
       value: 

@@ -15,6 +15,7 @@ public class BossHealth : MonoBehaviour
     private bool f1, f2, f3, f4; //fases para modificacion de ataques y sprite
 
     Animator animator;
+    public string bossState = "NewBossState";
 
     void Start()
     {
@@ -66,21 +67,41 @@ public class BossHealth : MonoBehaviour
             if (healthAmount <= totalHealthAmount / 5 * 4 && f1)
             {
                 f1 = false;
+                animator.SetBool("f1", true);
+                animator.SetBool("f2", false);
+                animator.SetBool("f3", false);
+                animator.SetBool("f4", false);
+                animator.SetTrigger("newBossState");
                 HardAtacks(0.1f,1,0);
             }
             else if (healthAmount <= totalHealthAmount / 5 * 3 && f2)
             {
                 f2 = false;
+                animator.SetBool("f1", false);
+                animator.SetBool("f2", true);
+                animator.SetBool("f3", false);
+                animator.SetBool("f4", false);
+                animator.SetTrigger("newBossState");
                 HardAtacks(0.1f,2,1);
             }
             else if (healthAmount <= totalHealthAmount / 5 * 2 && f3)
             {
                 f3 = false;
+                animator.SetBool("f1", false);
+                animator.SetBool("f2", false);
+                animator.SetBool("f3", true);
+                animator.SetBool("f4", false);
+                animator.SetTrigger("newBossState");
                 HardAtacks(0.2f,2,0);
             }
             else if (healthAmount <= totalHealthAmount / 5 && f4)
             {
                 f4 = false;
+                animator.SetBool("f1", false);
+                animator.SetBool("f2", false);
+                animator.SetBool("f3", false);
+                animator.SetBool("f4", true);
+                animator.SetTrigger("newBossState");
                 HardAtacks(0.2f,2,1);
             }
         }
@@ -99,7 +120,6 @@ public class BossHealth : MonoBehaviour
         //Atack 2
         gameObject.GetComponent<BossAtack2>().spiralNumber += c;
     }
-
     IEnumerator takeDamage()
     {
         AudioManager.instance.PlaySoundEnemyHurt();

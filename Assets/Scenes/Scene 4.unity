@@ -2927,6 +2927,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2054844107}
     - target: {fileID: 5679036025147366578, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
+      propertyPath: healthAmount
+      value: 9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679036025147366578, guid: a54e5658b2652344f9335f97db5b67f4, type: 3}
       propertyPath: panelGameOver
       value: 
       objectReference: {fileID: 1374910179}
@@ -3229,7 +3233,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035283774, y: 0.069811344}
+  m_Offset: {x: 0.17170583, y: 0.069811344}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3240,7 +3244,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76548845, y: 0.7884203}
+  m_Size: {x: 1.0568279, y: 0.7884203}
   m_EdgeRadius: 0
 --- !u!114 &2113945359
 MonoBehaviour:
@@ -3323,6 +3327,7 @@ MonoBehaviour:
   healthAmount: 100
   invulnerabilityTime: 0.6
   canTakeDamage: 0
+  bossState: NewBossState
 --- !u!212 &2113945365
 SpriteRenderer:
   m_ObjectHideFlags: 0
