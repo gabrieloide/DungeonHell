@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
     [Space]
-    public AudioClip music;
+    public AudioClip musicMainMenu;
+    public AudioClip musicGame;
     [Space]
     public AudioClip buttonClick;
     public AudioClip playerShoot;
@@ -33,7 +35,9 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.clip = music;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
+        musicSource.clip = musicMainMenu;
         musicSource.Play(0);
     }
 
@@ -66,7 +70,7 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(enemyHurt);
     }
-    
+
     public void PlaySoundAcornExplode()
     {
         sfxSource.PlayOneShot(acornExplode);
@@ -85,4 +89,17 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(treeFalling);
     }
 
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            musicSource.clip = musicMainMenu;
+            musicSource.Play(0);
+        }
+        else if(SceneManager.GetActiveScene().name == "Pre-game")
+        {
+            musicSource.clip = musicGame;
+            musicSource.Play(0);
+        }
+    }
 }

@@ -100,7 +100,7 @@ MonoBehaviour:
   projectilePrefabRed: {fileID: 2541424236216109393, guid: 0407b35f2cd8f9e47846c9ef9583fe6e, type: 3}
   projectilePrefrabBlue: {fileID: 2541424236216109393, guid: a2a1842f91b2e244997798f4dde7b00d, type: 3}
   rotationSpeed: 15.5
-  fireRate: 1.7
+  fireRate: 1.25
   damage: 1
 --- !u!1 &5679036025147366728
 GameObject:
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedBuff: 2
-  fireRateBuff: 1.2
+  fireRateBuff: 0.75
   timeBuff: 2.5
 --- !u!114 &7351974202765113664
 MonoBehaviour:

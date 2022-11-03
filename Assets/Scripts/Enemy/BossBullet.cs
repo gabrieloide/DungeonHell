@@ -10,7 +10,7 @@ public class BossBullet : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("Destroy", 3f);
+        Invoke("Destroy", 2f);
     }
  
     void FixedUpdate()

@@ -7,7 +7,7 @@ public class ExitCredits : MonoBehaviour
 {
     void Start()
     {
-        Invoke("exitcredit", 5);
+        Invoke("exitcredit", 9.25f);
     }
 
     private void exitcredit()

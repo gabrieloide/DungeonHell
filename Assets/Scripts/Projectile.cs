@@ -63,6 +63,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Kamikaze"))
         {
             collision.GetComponent<EnemyHealth>().healtAmount -= FindObjectOfType<PlayerShooting>().damage;
+            Destroy(gameObject);
         }
     }
 }

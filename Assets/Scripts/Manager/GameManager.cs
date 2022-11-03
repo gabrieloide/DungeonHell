@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void GameFinish()
     {
+        GameObject.Find("Player").GetComponent<PlayerLife>().inOver = true;
         AudioManager.instance.PlaySoundTreeFalling();
         StartCoroutine(GoCredits());
     }
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GoCredits()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(16);
         SceneManagerLoad.instance.credits();
     }
 }

@@ -48,9 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 2594495212171784496}
   sfxSource: {fileID: 2594495212598478324}
-  music: {fileID: 8300000, guid: 07928741c94752049849e87ec1f994fb, type: 3}
+  musicMainMenu: {fileID: 8300000, guid: 7abae1dfe10bb014482ff62179641d21, type: 3}
+  musicGame: {fileID: 8300000, guid: 3fbc3d76fee648e4db1966a2e4e4435b, type: 3}
   buttonClick: {fileID: 8300000, guid: 2397dd0dc7d0f914180312214f26e621, type: 3}
-  playerShoot: {fileID: 0}
+  playerShoot: {fileID: 8300000, guid: db323a1f5de29d44fa1e0980089ed269, type: 3}
   playerDash: {fileID: 8300000, guid: d018adf5d3b95c24bba01b19a782fd88, type: 3}
   playerHurt: {fileID: 8300000, guid: 5784625f9600ad64ca4d5b9936c19434, type: 3}
   changeColor: {fileID: 8300000, guid: c5bc4d40f8f235f4dbe9b1c6964e2dc8, type: 3}

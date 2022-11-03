@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -25,8 +26,12 @@ public class PlayerLife : MonoBehaviour
 
     void Start()
     {
-        healthAmount = FindObjectOfType<HealthBetweenScene>().healthPlayer;
-        startHealtAmount = FindObjectOfType<HealthBetweenScene>().healthPlayer;
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            healthAmount = FindObjectOfType<HealthBetweenScene>().healthPlayer;
+            startHealtAmount = FindObjectOfType<HealthBetweenScene>().healthPlayer;
+        }
+
         inOver = false;
 
         canTakeDamage = true;
